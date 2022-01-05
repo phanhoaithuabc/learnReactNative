@@ -1,9 +1,9 @@
 export const SET_USER_NAME = 'SET_USER_NAME';
 export const SET_USER_AGE = 'SET_USER_AGE';
 export const INCREASE_AGE = 'INCREASE_AGE';
-export const GET_TODOS = 'GET_TODOS';
+export const GET_USERS = 'GET_USERS';
 
-const API_URL = 'https://jsonplaceholder.typicode.com/todos'
+const API_URL = 'https://jsonplaceholder.typicode.com/users'
 
 export const setName = name => dispatch => {
     dispatch({
@@ -26,7 +26,7 @@ export const increaseAge = age => dispatch => {
     });
 };
 
-export const getTodos = () => {
+export const getUsers = () => {
     try {
         return async dispatch => {
             const result = await fetch(API_URL, {
@@ -36,7 +36,7 @@ export const getTodos = () => {
             const json = await result.json();
             if (json) {
                 dispatch({
-                    type: GET_CITIES,
+                    type: GET_USERS,
                     payload: json
                 });
             } else { console.log('Unable to fetch!'); }

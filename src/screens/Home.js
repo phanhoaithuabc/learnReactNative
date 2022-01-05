@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from 'react';
-import { StyleSheet, View, Text, Alert, TextInput, } from 'react-native';
+import { StyleSheet, View, Text, Alert, TextInput, FlatList, TouchableOpacity,
+} from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import CustomButton from '../utils/CustomButton';
 import GlobalStyle from '../utils/GlobalStyle';
 import SQLite from 'react-native-sqlite-storage';
 import { useSelector, useDispatch } from 'react-redux';
-import { setName, setAge, increaseAge, getCities } from '../redux/actions';
+import { setName, setAge, increaseAge, getUsers } from '../redux/actions';
+import PushNotification from "react-native-push-notification";
 
 
 //------------------------------------------------------------------------------------ //
@@ -260,12 +262,12 @@ const db = SQLite.openDatabase(
 
 export default function Home() {
 
-    const { name, age, todos } = useSelector(state => state.userReducer);
+    const { name, age, users } = useSelector(state => state.userReducer);
     const dispatch = useDispatch();
 
     useEffect(() => {
         getData();
-        dispatch(getCities());
+        dispatch(getUsers());
     }, []);
 
     const getData = () => {
@@ -286,11 +288,11 @@ export default function Home() {
 
     const handleNotification = (item, index) => {
         PushNotification.cancelAllLocalNotifications();
-        let result = item.completed ? "done" : "not done"
+
         PushNotification.localNotification({
-            channelId: "test-channel", title: "You clicked on " + item.completed,
-            message: item.title,
-            bigText: item.title + " is " + result,
+            channelId: "test-channel", title: "You clicked on " + item.name,
+            message: item.name,
+            bigText: item.name + " has " + item.website,
             color: "red", id: index
         });
 
@@ -305,12 +307,12 @@ export default function Home() {
     return (
         <View style={styles.body}>
             <Text style={[GlobalStyle.CustomFont, styles.text]}>Welcome {name} !</Text>
-            <FlatList data={cities}
+            <FlatList data={users}
                 renderItem={({ item, index }) => (
                     <TouchableOpacity onPress={() => { handleNotification(item, index) }}>
                         <View style={styles.item}>
-                            <Text style={styles.title}>{item.completed}</Text>
-                            <Text style={styles.subtitle}>{item.title}</Text>
+                            <Text style={styles.title}>{item.name}</Text>
+                            <Text style={styles.subtitle}>{item.website}</Text>
                         </View>
                     </TouchableOpacity>
                 )}

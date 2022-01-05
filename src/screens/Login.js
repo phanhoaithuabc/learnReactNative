@@ -5,7 +5,7 @@ import CustomButton from '../utils/CustomButton';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import SQLite from 'react-native-sqlite-storage';
 import { useSelector, useDispatch } from 'react-redux';
-import { setName, setAge, increaseAge, getTodos } from '../redux/actions';
+import { setName, setAge, increaseAge, } from '../redux/actions';
 import PushNotification from "react-native-push-notification";
 
 
@@ -306,7 +306,7 @@ export default function Login({ navigation }) {
 //------------------------------------------------------------------------------------ //
 
 
-// Local & Scheduled Push Notification
+// 
 
 
 //------------------------------------------------------------------------------------ //

@@ -1,9 +1,9 @@
-import { SET_USER_NAME, SET_USER_AGE, INCREASE_AGE, GET_TODOS } from './actions';
+import { SET_USER_NAME, SET_USER_AGE, INCREASE_AGE, GET_USERS } from './actions';
 
 const initialState = {
     name: '',
     age: 0,
-    todos: [],
+    users: [],
 }
 
 function userReducer(state = initialState, action) {
@@ -14,8 +14,8 @@ function userReducer(state = initialState, action) {
             return { ...state, age: action.payload };
         case INCREASE_AGE:
             return { ...state, age: state.age + 1 };
-        case GET_TODOS:
-            return { ...state, todos: action.payload };
+        case GET_USERS:
+            return { ...state, users: action.payload };
         default:
             return state;
     }

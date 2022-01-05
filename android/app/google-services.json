@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "798936286875",
+    "project_id": "test-push-remote-notification",
+    "storage_bucket": "test-push-remote-notification.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:798936286875:android:bdca3d8cadcc377cdde83e",
+        "android_client_info": {
+          "package_name": "com.learnreactnative"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "798936286875-4cj1a7etibne0us7e0225vkki99nd16b.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBltqPFrw8amTUGQokltNHQ03aW1SChsmY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "798936286875-4cj1a7etibne0us7e0225vkki99nd16b.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
