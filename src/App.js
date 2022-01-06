@@ -8,12 +8,15 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
+import { RNCamera, FaceDetector } from 'react-native-camera';
 import { Provider } from 'react-redux';
 import { Store } from './redux/store';
 import ScreenA from './screens/ScreenA';
 import ScreenB from './screens/ScreenB';
 import Home from './screens/Home';
 import Login from './screens/Login';
+import Map from './screens/Map';
+import Camera from './screens/Camera';
 
 // ----------------------------------------------------------------------------------- //
 
@@ -301,7 +304,7 @@ import Login from './screens/Login';
 
 
 // Redux - State Management example & Fetch Data from an API Using Redux & 
-// Local & Scheduled Push Notification
+// Local & Scheduled Push Notification & NR Camera with Hook
 const Stack = createStackNavigator();
 
 function App() {
@@ -322,6 +325,8 @@ function App() {
           }}>
           <Stack.Screen name="Login" component={Login} options={{ headerShown: false, }}/>
           <Stack.Screen name="Home" component={Home} />
+          <Stack.Screen name="Map" component={Map} />
+          <Stack.Screen name="Camera" component={Camera} />
         </Stack.Navigator>
       </NavigationContainer>
     </Provider>
@@ -332,7 +337,7 @@ function App() {
 //------------------------------------------------------------------------------------ //
 
 
-
+// 
 
 //------------------------------------------------------------------------------------ //
 

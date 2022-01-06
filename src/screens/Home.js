@@ -250,7 +250,8 @@ import PushNotification from "react-native-push-notification";
 //------------------------------------------------------------------------------------ //
 
 
-// Fetch Data from an API Using Redux & Local & Scheduled Push Notification
+// Fetch Data from an API Using Redux & Local & Scheduled Push Notification &
+// Google Maps & NR Camera with Hook
 const db = SQLite.openDatabase(
     {
         name: 'MainDB',
@@ -260,7 +261,7 @@ const db = SQLite.openDatabase(
     error => { console.log(error) }
 );
 
-export default function Home() {
+export default function Home({ navigation }) {
 
     const { name, age, users } = useSelector(state => state.userReducer);
     const dispatch = useDispatch();
@@ -307,6 +308,20 @@ export default function Home() {
     return (
         <View style={styles.body}>
             <Text style={[GlobalStyle.CustomFont, styles.text]}>Welcome {name} !</Text>
+                <CustomButton title="Open Camera" color='#0080ff'
+                    onPressFunction={() => { navigation.navigate('Camera') }} />
+                <TouchableOpacity onPress={() => { 
+                    navigation.navigate('Map', {
+                        city: 'Quy Nhon',
+                        lat: 0,
+                        lng: 0,
+                    });
+                }}>
+                    <View style={styles.item}>
+                        <Text style={styles.title}>Binh Dinh</Text>
+                        <Text style={styles.subtitle}>Quy Nhon</Text>
+                    </View>
+                </TouchableOpacity>
             <FlatList data={users}
                 renderItem={({ item, index }) => (
                     <TouchableOpacity onPress={() => { handleNotification(item, index) }}>
@@ -330,7 +345,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
     },
     text: {
-        fontSize: 40,
+        fontSize: 35,
         margin: 10,
     },
     input: {
@@ -355,12 +370,12 @@ const styles = StyleSheet.create({
         alignItems: 'center',
     },
     title: {
-        fontSize: 30,
-        margin: 10,
+        fontSize: 20,
+        margin: 5,
     },
     subtitle: {
-        fontSize: 20,
-        margin: 10,
+        fontSize: 16,
+        margin: 5,
         color: '#999999',
     }
 })

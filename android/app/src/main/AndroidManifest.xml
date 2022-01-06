@@ -4,6 +4,10 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.VIBRATE" />
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     
     <application
       android:name=".MainApplication"
@@ -49,5 +53,13 @@
             <action android:name="com.google.firebase.MESSAGING_EVENT" />
           </intent-filter>
         </service>
+        
+      <!-- You will only need to add this meta-data tag, but make sure it's a child of application -->
+      <meta-data
+        android:name="com.google.android.geo.API_KEY"
+        android:value="AIzaSyAvr8WSrVO87C2L9btC04UALzoidiP63MA"/>
+
+      <!-- You will also only need to add this uses-library tag -->
+      <uses-library android:name="org.apache.http.legacy" android:required="false"/>
     </application>
 </manifest>

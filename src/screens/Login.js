@@ -221,7 +221,8 @@ import PushNotification from "react-native-push-notification";
 //------------------------------------------------------------------------------------ //
 
 
-// Fetch Data from an API Using Redux & Local & Scheduled Push Notification
+// Fetch Data from an API Using Redux & Local & Scheduled Push Notification & 
+// Google Maps & NR Camera with Hook
 const db = SQLite.openDatabase(
     {
         name: 'MainDB',
@@ -312,7 +313,7 @@ export default function Login({ navigation }) {
 //------------------------------------------------------------------------------------ //
 
 
-// Push Notification with Firebase - Remote Notification
+// 
 
 
 //------------------------------------------------------------------------------------ //
