@@ -307,7 +307,7 @@ import Camera from './screens/Camera';
 // Local & Scheduled Push Notification & NR Camera with Hook
 const Stack = createStackNavigator();
 
-function App() {
+const App = () => {
   return (
     <Provider store={Store}>
       <NavigationContainer>
