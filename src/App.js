@@ -15,8 +15,12 @@ import ScreenA from './screens/ScreenA';
 import ScreenB from './screens/ScreenB';
 import Home from './screens/Home';
 import Login from './screens/Login';
-import Map from './screens/Map';
+import Maps from './screens/Maps';
 import Camera from './screens/Camera';
+import ToDo from './screens/ToDo';
+import Done from './screens/Done';
+import Task from './screens/Task';
+import Splash from './screens/Splash';
 
 // ----------------------------------------------------------------------------------- //
 
@@ -303,15 +307,81 @@ import Camera from './screens/Camera';
 //------------------------------------------------------------------------------------ //
 
 
-// Redux - State Management example & Fetch Data from an API Using Redux & 
-// Local & Scheduled Push Notification & NR Camera with Hook
-const Stack = createStackNavigator();
+// // Redux - State Management example & Fetch Data from an API Using Redux & 
+// // Local & Scheduled Push Notification & NR Camera with Hook
+// const Stack = createStackNavigator();
 
-const App = () => {
+// const App = () => {
+//   return (
+//     <Provider store={Store}>
+//       <NavigationContainer>
+//         <Stack.Navigator initialRouteName="Login"
+//           screenOptions={{
+//             headerTitleAlign: 'center',
+//             headerStyle: {
+//               backgroundColor: '#0080ff'
+//             },
+//             headerTintColor: '#ffffff',
+//             headerTitleStyle: {
+//               fontSize: 25,
+//               fontWeight: 'bold'
+//             }
+//           }}>
+//           <Stack.Screen name="Login" component={Login} options={{ headerShown: false, }}/>
+//           <Stack.Screen name="Home" component={Home} />
+//           <Stack.Screen name="Map" component={Map} />
+//           <Stack.Screen name="Camera" component={Camera} />
+//         </Stack.Navigator>
+//       </NavigationContainer>
+//     </Provider>
+//   )
+// }
+
+
+//------------------------------------------------------------------------------------ //
+
+
+// Todo app
+const Tab = createBottomTabNavigator();
+
+function HomeTabs() {
+  return (
+    <Tab.Navigator
+      screenOptions={
+        ({ route }) => ({
+          tabBarIcon: ({ focused, size, color }) => {
+            let iconName;
+            if (route.name === 'To-Do') {
+              iconName = 'clipboard-list';
+              size = focused ? 25 : 20;
+            } else if (route.name === 'Done') {
+              iconName = 'clipboard-check';
+              size = focused ? 25 : 20;
+            }
+            return (
+              <FontAwesome5 name={iconName} size={size} color={color} />
+            );
+          }
+        })
+      }
+      tabBarOptions={{
+        activeTintColor: '#0080ff', inactiveTintColor: '#777777',
+        labelStyle: { fontSize: 15, fontWeight: 'bold' }
+      }}
+    >
+      <Tab.Screen name={'To-Do'} component={ToDo} />
+      <Tab.Screen name={'Done'} component={Done} />
+    </Tab.Navigator>
+  );
+}
+
+const RootStack = createStackNavigator();
+
+function App() {
   return (
     <Provider store={Store}>
       <NavigationContainer>
-        <Stack.Navigator initialRouteName="Login"
+        <RootStack.Navigator initialRouteName="Splash"
           screenOptions={{
             headerTitleAlign: 'center',
             headerStyle: {
@@ -322,22 +392,26 @@ const App = () => {
               fontSize: 25,
               fontWeight: 'bold'
             }
-          }}>
-          <Stack.Screen name="Login" component={Login} options={{ headerShown: false, }}/>
-          <Stack.Screen name="Home" component={Home} />
-          <Stack.Screen name="Map" component={Map} />
-          <Stack.Screen name="Camera" component={Camera} />
-        </Stack.Navigator>
+          }}
+        >
+          <RootStack.Screen name="Splash"
+            component={Splash}
+            options={{
+              headerShown: false,
+            }}
+          />
+          <RootStack.Screen name="My Tasks"
+            component={HomeTabs}
+          />
+          <RootStack.Screen name="Task"
+            component={Task}
+          />
+        </RootStack.Navigator>
       </NavigationContainer>
     </Provider>
   )
 }
 
-
-//------------------------------------------------------------------------------------ //
-
-
-// 
 
 //------------------------------------------------------------------------------------ //
 

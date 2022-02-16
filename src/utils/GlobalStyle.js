@@ -8,5 +8,11 @@ export default StyleSheet.create({
         fontFamily: 'Shizuru-Regular',
         fontSize: 25,
         padding: 10,
+    },
+    CustomFontBig: {
+        fontFamily: 'Shizuru-Regular'
+    },
+    CustomFontHW: {
+        fontFamily: 'Shizuru-Regular'
     }
 });

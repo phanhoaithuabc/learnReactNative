@@ -3,7 +3,7 @@ import { View, StyleSheet, Text, } from 'react-native';
 import GlobalStyle from '../utils/GlobalStyle';
 import MapView from 'react-native-maps';
 
-export default function Map({ route }) {
+export default function Maps({ route }) {
 
     const { city, lat, lng } = route.params;
 
