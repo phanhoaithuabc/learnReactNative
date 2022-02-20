@@ -364,7 +364,7 @@ function HomeTabs() {
           }
         })
       }
-      tabBarOptions={{
+      screenOptions={{
         activeTintColor: '#0080ff', inactiveTintColor: '#777777',
         labelStyle: { fontSize: 15, fontWeight: 'bold' }
       }}
