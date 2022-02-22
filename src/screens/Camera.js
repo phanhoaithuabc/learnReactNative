@@ -1,13 +1,14 @@
 import React from 'react';
-import { View, StyleSheet, } from 'react-native';
+import { View, StyleSheet, Alert } from 'react-native';
 import { RNCamera } from 'react-native-camera';
 import { useCamera } from 'react-native-camera-hooks';
 import CustomButton from '../utils/CustomButton';
 import RNFS from 'react-native-fs';
 import { useDispatch, useSelector } from 'react-redux';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import { setTasks } from '../redux/actions';
 
-export default function Camera() {
+export default function Camera({ navigation, route }) {
 
     const [{ cameraRef }, { takePicture }] = useCamera(null);
     // todo app

@@ -211,62 +211,33 @@ export default function Task({ navigation }) {
                     </TouchableOpacity>
                 </View>
                 <View style={styles.extra_row}>
-                    <TouchableOpacity
-                        style={styles.extra_button}
-                        onPress={() => { setShowBellModal(true) }}
-                    >
-                        <FontAwesome5
-                            name={'bell'}
-                            size={25}
-                            color={'#ffffff'}
-                        />
+                    <TouchableOpacity style={styles.extra_button}
+                        onPress={() => { setShowBellModal(true) }}>
+                        <FontAwesome5 name={'bell'} size={25} color={'#ffffff'}/>
                     </TouchableOpacity>
-                    <TouchableOpacity
-                        style={styles.extra_button}
-                        onPress={() => { navigation.navigate('Camera', { id: taskID }) }}
-                    >
-                        <FontAwesome5
-                            name={'camera'}
-                            size={25}
-                            color={'#ffffff'}
-                        />
+                    <TouchableOpacity style={styles.extra_button}
+                        onPress={() => { navigation.navigate('Camera', { id: taskID }) }}>
+                        <FontAwesome5 name={'camera'} size={25} color={'#ffffff'}/>
                     </TouchableOpacity>
                 </View>
                 {image ?
                     <View>
-                        <Image
-                            style={styles.image}
-                            source={{ uri: image }}
-                        />
-                        <TouchableOpacity
-                            style={styles.delete}
-                            onPress={() => { deleteImage() }}
-                        >
-                            <FontAwesome5
-                                name={'trash'}
-                                size={25}
-                                color={'#ff3636'}
-                            />
+                        <Image style={styles.image} source={{ uri: image }}/>
+                        <TouchableOpacity style={styles.delete}
+                            onPress={() => { deleteImage() }}>
+                            <FontAwesome5 name={'trash'} size={25} color={'#ff3636'}/>
                         </TouchableOpacity>
                     </View>
                     :
                     null
                 }
                 <View style={styles.checkbox}>
-                    <CheckBox
-                        value={done}
-                        onValueChange={(newValue) => setDone(newValue)}
-                    />
-                    <Text style={styles.text}>
-                        Is Done
-                    </Text>
+                    <CheckBox value={done}
+                        onValueChange={(newValue) => setDone(newValue)}/>
+                    <Text style={styles.text}>Is Done</Text>
                 </View>
-                <CustomButton
-                    title='Save Task'
-                    color='#1eb900'
-                    style={{ width: '100%' }}
-                    onPressFunction={setTask}
-                />
+                <CustomButton title='Save Task' color='#1eb900'
+                    style={{ width: '100%' }} onPressFunction={setTask}/>
             </View>
         </ScrollView>
     )

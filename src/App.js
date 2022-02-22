@@ -394,18 +394,12 @@ function App() {
             }
           }}
         >
-          <RootStack.Screen name="Splash"
-            component={Splash}
-            options={{
-              headerShown: false,
-            }}
+          <RootStack.Screen name="Splash" component={Splash}
+            options={{ headerShown: false, }}
           />
-          <RootStack.Screen name="My Tasks"
-            component={HomeTabs}
-          />
-          <RootStack.Screen name="Task"
-            component={Task}
-          />
+          <RootStack.Screen name="My Tasks" component={HomeTabs} />
+          <RootStack.Screen name="Task" component={Task} />
+          <RootStack.Screen name="Camera" component={Camera} />
         </RootStack.Navigator>
       </NavigationContainer>
     </Provider>
